@@ -20,3 +20,18 @@ a) Navigate to tsconfig.json file
 b) keep as follows: Always when you start a new typescript project
 "rootDir": "./src",
 "outDir": "./dist",
+
+
+#Starting a backend
+
+1) Install express
+npm install express
+
+2) Install types for express
+npm install -D @types/express
+
+also you can use @types-config
+
+3) if facing issues with express still navigate to packtage.json file and add  "type": "module",
+
+   
