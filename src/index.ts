@@ -3,6 +3,8 @@ import mongoose from 'mongoose'
 import jwt from 'jsonwebtoken'
 import { userModel } from './db.js';
 
+const JWT_PASSWORD = "123123"
+
 const app = express();
 app.use(express.json());
 
@@ -29,10 +31,30 @@ res.status(200).json({
 }
 })
 
-app.post('/signin', (req, res) => {
- 
- 
+
+app.post('/signin', async (req, res) => {
+
+    const username = req.body.username
+    const password = req.body.password
+
+     const existingUser = await userModel.findOne({
+        username,
+        password
+    })
+
+    if(existingUser){
+        const token = jwt.sign({
+            id: existingUser._id
+        }, JWT_PASSWORD)
+        
+        res.json({
+            token
+        })
+    } else{
+        res.status(403).json({
+            message: "Invalid credentials"
+        })
+    }
+
 })
-
-
 app.listen(3000);
