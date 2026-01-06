@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import { userModel } from './db.js';
-const JWT_PASSWORD = "123123";
+const JWT_PASSWORD = "!23123";
 const app = express();
 app.use(express.json());
 app.post('/signup', async (req, res) => {
