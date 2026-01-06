@@ -5,4 +5,4 @@ const userSchema = new Schema({
     password: String
 })
 
-export const userModel = new Model('user', userSchema)
+export const userModel = new Model('User', userSchema)
