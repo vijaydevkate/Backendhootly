@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import { userModel } from './db.js';
 
 const app = express();
+app.use(express.json());
 
 app.post('/signup', (req, res) => {
 // Todo: Zod validation, hash the password
