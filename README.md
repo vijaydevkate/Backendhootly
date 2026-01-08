@@ -34,4 +34,7 @@ also you can use @types-config
 
 3) if facing issues with express still navigate to packtage.json file and add  "type": "module",
 
-   
+To run Typescript project add below command in package.json 
+"build": "tsc -b",
+"start": "node dist/index.js",
+"dev": "npm run build && npm run start"
