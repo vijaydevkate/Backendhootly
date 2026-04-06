@@ -2,11 +2,16 @@ import express from 'express'
 import jwt from 'jsonwebtoken'
 import { userModel } from './db.js';
 import {JWT_PASSWORD} from './config.js'
-
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
 
+//connecting backend to frontend using cors
+app.use(cors({
+  origin: 'https://thehootly.com',  // your frontend domain
+  credentials: true
+}));
 //Tesitng if backend is live or not
 app.get('/', (req, res) => {
   res.send('Backend Hootly is live!');
