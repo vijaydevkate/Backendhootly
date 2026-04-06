@@ -7,6 +7,11 @@ import {JWT_PASSWORD} from './config.js'
 const app = express();
 app.use(express.json());
 
+//Tesitng if backend is live or not
+app.get('/', (req, res) => {
+  res.send('Backend Hootly is live!');
+});
+
 app.post('/signup', async (req, res) => {
 // Todo: Zod validation, hash the password
 
@@ -56,4 +61,9 @@ app.post('/signin', async (req, res) => {
     }
 
 })
-app.listen(3000);
+
+//Render doesn't workl hardcoded on port 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
